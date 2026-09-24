@@ -1,0 +1,17 @@
+name: Build Kernel
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Kernel with APatch/KALLSYMS
+        uses: dabao1955/kernel_build_action@main
+        with:
+          kernel-url: https://github.com/VH-Devices/android_kernel_samsung_a31
+          config: a31_defconfig
+          arch: arm64
+          android-version: 12
+          aosp-gcc: true
+          aosp-clang: true
+          apatch: true
